@@ -2,8 +2,7 @@ const express = require('express');
 const connection = require('../config/dbConnection1');
 const router = express.Router();
 
-
-router.post('/', (req, resp) => {
+const putData=((req, resp) => {
   const data = req.body;
   const query = "INSERT INTO data (name, age, description) VALUES (?, ?, ?)";
 
@@ -15,8 +14,7 @@ router.post('/', (req, resp) => {
     }
   });
 });
-
-router.get(('/showData'),(req,resp)=>{
+const showData=((req,resp)=>{
     
     var query = "select * from data"
     connection.query(query,(err,result)=>{
@@ -29,7 +27,7 @@ router.get(('/showData'),(req,resp)=>{
 
     })
 });
-router.patch(('/update'),(req,resp)=>{
+const updateData =((req,resp)=>{
     const id = req.params.id;
     let data = req.body;
     var query = "update  data set name = ?, age =?, description=? where id = ?"
@@ -46,4 +44,9 @@ router.patch(('/update'),(req,resp)=>{
         }
     })
 })
-module.exports = router;
+
+module.exports = {
+    putData,
+    showData,
+    updateData
+};
