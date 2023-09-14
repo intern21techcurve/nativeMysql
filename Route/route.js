@@ -10,6 +10,6 @@ router.get('/showData', customerController.showData);
 
 //updated a data 
 
-router.patch('/update',customerController.updateData);
+router.patch('/updateData/:id',customerController.updateData);
 
 module.exports = router;

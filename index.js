@@ -1,5 +1,4 @@
 const express = require('express');
-const connection = require('./config/dbConnection1')
 const route = require('./Route/route')
 
 

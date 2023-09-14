@@ -1,6 +1,6 @@
-const express = require('express');
+
 const connection = require('../config/dbConnection1');
-const router = express.Router();
+
 
 const putData=((req, resp) => {
   const data = req.body;
