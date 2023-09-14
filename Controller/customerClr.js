@@ -2,11 +2,11 @@
 const connection = require('../config/dbConnection1');
 
 
-const putData=((req, resp) => {
+const addData=((req, resp) => {
   const data = req.body;
   const query = "INSERT INTO data (name, age, description) VALUES (?, ?, ?)";
 
-  connection.query(query, [data.name,data.age,data. description], (err, result) => {
+  connection.query(query, [data.name,data.age,data.description], (err, result) => {
     if (!err) {
       resp.status(201).send(result);
     } else {
@@ -46,7 +46,7 @@ const updateData =((req,resp)=>{
 })
 
 module.exports = {
-    putData,
+    addData,
     showData,
     updateData
 };
